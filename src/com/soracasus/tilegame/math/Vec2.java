@@ -52,6 +52,12 @@ public class Vec2 {
 		return (float) Math.sqrt(lengthSquare());
 	}
 
+	public void normalize () {
+		float l = length();
+		this.x /= l;
+		this.y /= l;
+	}
+
 	public float getX () {
 		return x;
 	}
