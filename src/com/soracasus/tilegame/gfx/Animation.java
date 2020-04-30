@@ -9,13 +9,15 @@ public class Animation {
 	private long lastTime;
 	private long timer;
 	private BufferedImage[] frames;
+	private BufferedImage still;
 
-	public Animation(int speed, BufferedImage[] frames) {
+	public Animation (int speed, BufferedImage[] frames, BufferedImage still) {
 		this.speed = speed;
 		this.frames = frames;
 		this.index = 0;
 		this.timer = 0;
 		this.lastTime = System.currentTimeMillis();
+		this.still = still;
 	}
 
 	public void tick() {
@@ -35,5 +37,7 @@ public class Animation {
 		return frames[index];
 	}
 
-
+	public BufferedImage getStill () {
+		return still;
+	}
 }
