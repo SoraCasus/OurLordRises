@@ -19,7 +19,7 @@ public class Assets {
 		terrain = new SpriteSheet(getTexture("/textures/terrain.png"));
 	}
 
-	public BufferedImage[][] loadPlayerMoveAnim (SpriteSheet sheet) {
+	public BufferedImage[][] loadCreatureAnimations (SpriteSheet sheet) {
 		return new BufferedImage[][]{
 				// Down
 				{
@@ -43,7 +43,7 @@ public class Assets {
 		};
 	}
 
-	public BufferedImage[] loadPlayerStills (SpriteSheet sheet) {
+	public BufferedImage[] loadCreatureStills (SpriteSheet sheet) {
 		return new BufferedImage[]{
 				sheet.crop(32, 0, 32, 32),
 				sheet.crop(32, 32, 32, 32),
