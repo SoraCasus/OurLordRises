@@ -6,10 +6,12 @@ import com.soracasus.tilegame.input.Input;
 import com.soracasus.tilegame.math.Vec2;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Gnoll extends Creature {
 
 	private Camera camera;
+	private Player player;
 
 	public Gnoll (Vec2 position) {
 		super(position, "/textures/gnoll.png", 250);
@@ -25,7 +27,18 @@ public class Gnoll extends Creature {
 
 	@Override
 	public void tick (Input input) {
+		if (player == null) {
+			player = Handler.getInstance().getWorld().getEntityManager().getPlayer();
+		}
 		animations.getCurrentAnimation(direction).tick();
+		Vec2 point = position.add(direction.getDelta());
+
+		Rectangle hitbox = new Rectangle((int) point.getX(), (int) point.getY(), 64, 64);
+
+		if (hitbox.contains(player.getPosition().getX() + 32, player.getPosition().getY() + 32)) {
+			// A collision has happened, now transition to battle system
+			System.out.println("Collided with player");
+		}
 	}
 
 	@Override

@@ -43,4 +43,8 @@ public class EntityManager {
 	public List<Entity> getEntities () {
 		return entities;
 	}
+
+	public Player getPlayer () {
+		return player;
+	}
 }
